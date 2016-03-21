@@ -5,8 +5,7 @@
 <script src="https://cdn.rawgit.com/colt05/improved-octo-robot/00f5423bc26d68fc6976b701e2415212aeb79088/scratchstats.js"></script>
 <script>
 function w(id) {
-document.write("\<script src=\"https://phosphorus.github.io/embed.js?id=".concat(id).concat("&auto-start=false&light-content=false\">"));
-document.write("\<\/\s\c\r\i\p\t\>")
+  document.getElementById("iframe").src = "http://phosphorus.github.io/app.html?id=".concat(id).concat("&turbo=false&full-screen=false");
 }
   function randomProject() {
   try{
@@ -62,4 +61,5 @@ document.write("\<\/\s\c\r\i\p\t\>")
 <button onclick="randomProject()">Start</button>
 <a id="link" href="http://colt05.github.io/"></a>
 <p id="details"></p>
+<iframe id="iframe" src="http://colt05.github.io/"></iframe>
 </html>
