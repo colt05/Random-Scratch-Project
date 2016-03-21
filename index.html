@@ -12,8 +12,39 @@
   xmlHttp.open( "GET", url, false );
   xmlHttp.send( null );
   response = xmlHttp.responseText;
+  var jsonParsed = getProjectJSON(response);
+  if (jsonParsed != false) {
+  document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" Creator name: ").concat(jsonParsed.creator.username);
   document.getElementById("link").href = "https://scratch.mit.edu/projects/".concat(response).concat("/");
   document.getElementById("link").innerHTML = "Click";
+  } else {
+    response = response + 1;
+    jsonParsed = getProjectJSON(response);
+    if (jsonParsed != false) {
+    document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" Creator name: ").concat(jsonParsed.creator.username);
+    document.getElementById("link").href = "https://scratch.mit.edu/projects/".concat(response).concat("/");
+    document.getElementById("link").innerHTML = "Click";
+    } else {
+      var r = confirm("The random project IDs did not lead to a project. Keep trying?");
+      if (r == true) {
+        while (jsonParsed == false) {
+          url = "http://crossorigin.me/http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount()).concat("&col=1&base=10&format=plain&rnd=new");
+          response = "123456";
+          parsed = null;
+          xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", url, false );
+          xmlHttp.send( null );
+          response = xmlHttp.responseText;
+          jsonParsed = getProjectJSON(response);
+        }
+          document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" Creator name: ").concat(jsonParsed.creator.username);
+          document.getElementById("link").href = "https://scratch.mit.edu/projects/".concat(response).concat("/");
+          document.getElementById("link").innerHTML = "Click";
+      } else {
+        // do nothing
+      }
+    }
+  }
   }
   catch(err) {
   alert("Error!");
@@ -22,4 +53,5 @@
 </script>
 <button onclick="randomProject()">Start</button>
 <a id="link" href="http://colt05.github.io/"></a>
+<p id="details"></p>
 </html>
