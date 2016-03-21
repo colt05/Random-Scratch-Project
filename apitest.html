@@ -1,1 +1,12 @@
 <title>API test</title>
+<script src="https://github.com/colt05/Random-Scratch-Project/blob/gh-pages/api.js"></script>
+<script>
+  function go() {
+    document.getElementById("wait").innerHTML = ":)";
+    document.getElementById("r").href = randomProjectURL();
+    document.getElementById("r").innerHTML = "Done!";
+  }
+</script>
+<p id="wait">Please wait for script to finish...</p>
+<a id="r" href="http://colt05.github.io"></p>
+<body onload="go()">
