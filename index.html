@@ -1,10 +1,25 @@
 <html>
 <h1>Random Scratch Project</h1>
 <h2>View a random project on Scratch!</h2>
+<script src="https://cdn.rawgit.com/colt05/improved-octo-robot/804186b74c43c624b3455429f92295d91f32dbb6/scratchstats.js"></script>
 <script>
   function randomProject() {
-    
+  try{
+  var url = "random.org/integers/?num=1&min=1&max=".concat(getProjectCount()).concat("&col=1&base=10&format=plain&rnd=new");
+  var response = "123456";
+  var parsed = null;
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", url, false );
+  xmlHttp.send( null );
+  response = xmlHttp.responseText;
+  document.getElementById("link").href = "https://scratch.mit.edu/projects/".concat(response).concat("/");
+  document.getElementById("link").innerHTML = "Click";
+  }
+  catch(err) {
+  alert("Error!");
+  }
   }
 </script>
 <button onclick="randomProject()">Start</button>
+<a id="link" href="http://colt05.github.io/"></a>
 </html>
