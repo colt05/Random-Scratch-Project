@@ -38,7 +38,7 @@ function getProjectJSON(projectid) {
   }
 }
 //api
-  function randomProject() {
+  function randomProjectURL() {
   try{
   var url = "http://crossorigin.me/http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount()).concat("&col=1&base=10&format=plain&rnd=new");
   var response = "123456";
@@ -58,7 +58,9 @@ function getProjectJSON(projectid) {
           response = xmlHttp.responseText;
           jsonParsed = getProjectJSON(response);
         }
+        var projecturl = "https://scratch.mit.edu/projects/".concat(response).concat("/");
+        return projecturl;
     } catch(err) {
-    return false;
+        return false;
   }
 }
