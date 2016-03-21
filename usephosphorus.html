@@ -6,6 +6,9 @@
 <script>
 function w(id) {
   document.getElementById("iframe").src = "http://phosphorus.github.io/app.html?id=".concat(id).concat("&turbo=false&full-screen=false");
+  document.getElementById("iframe").width = 1000;
+  document.getElementById("iframe").height = 1000;
+  
 }
   function randomProject() {
   try{
