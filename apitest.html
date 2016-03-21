@@ -2,9 +2,11 @@
 <script src="https://github.com/colt05/Random-Scratch-Project/blob/gh-pages/api.js"></script>
 <script>
   function go() {
-    document.getElementById("wait").innerHTML = ":)";
-    document.getElementById("r").href = randomProjectURL();
+    var proj;
+    proj = randomProjectURL();
+    document.getElementById("r").href = proj;
     document.getElementById("r").innerHTML = "Done!";
+    document.getElementById("wait").innerHTML = ":)";
   }
 </script>
 <p id="wait">Please wait for script to finish...</p>
