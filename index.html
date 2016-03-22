@@ -6,7 +6,7 @@
 <script>
   function randomProject() {
   try{
-  var url = "http://crossorigin.me/http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount()).concat("&col=1&base=10&format=plain&rnd=new");
+  var url = "http://crossorigin.me/http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount() * 2).concat("&col=1&base=10&format=plain&rnd=new");
   var response = "123456";
   var parsed = null;
   var xmlHttp = new XMLHttpRequest();
