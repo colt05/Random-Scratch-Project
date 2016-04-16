@@ -3,16 +3,18 @@
 <h1>Random Scratch Project</h1>
 <h2>View a random project on Scratch!</h2>
 <script src="https://cdn.rawgit.com/colt05/improved-octo-robot/00f5423bc26d68fc6976b701e2415212aeb79088/scratchstats.js"></script>
+<script src="//cdn.rawgit.com/colt05/get-request/master/latest3.js"></script>
 <script>
+  importGet();
   function randomProject() {
   try{
-  var url = "http://crossorigin.me/http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount() * 2).concat("&col=1&base=10&format=plain&rnd=new");
+  var url = "http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount() * 2).concat("&col=1&base=10&format=plain&rnd=new");
   var response = "123456";
   var parsed = null;
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", url, false );
-  xmlHttp.send( null );
-  response = xmlHttp.responseText;
+  //var xmlHttp = new XMLHttpRequest();
+  //xmlHttp.open( "GET", url, false );
+  //xmlHttp.send( null );
+  response = proxyget(url, "Random-Scratch-Project");
   var jsonParsed = getProjectJSON(response);
   if (jsonParsed != false) {
   document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" \nCreator name: ").concat(jsonParsed.creator.username);
