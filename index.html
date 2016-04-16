@@ -14,7 +14,7 @@
   //var xmlHttp = new XMLHttpRequest();
   //xmlHttp.open( "GET", url, false );
   //xmlHttp.send( null );
-  response = proxyget(url, "Random-Scratch-Project");
+  response = httpget(url, "Random-Scratch-Project");
   var jsonParsed = getProjectJSON(response);
   if (jsonParsed != false) {
   document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" \nCreator name: ").concat(jsonParsed.creator.username);
@@ -31,13 +31,13 @@
       var r = confirm("The random project IDs did not lead to a project. Keep trying?");
       if (r == true) {
         while (jsonParsed == false) {
-          url = "http://crossorigin.me/http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount()).concat("&col=1&base=10&format=plain&rnd=new");
+          url = "http://random.org/integers/?num=1&min=1&max=".concat(getProjectCount()).concat("&col=1&base=10&format=plain&rnd=new");
           response = "123456";
           parsed = null;
-          xmlHttp = new XMLHttpRequest();
-          xmlHttp.open( "GET", url, false );
-          xmlHttp.send( null );
-          response = xmlHttp.responseText;
+          //xmlHttp = new XMLHttpRequest();
+          //xmlHttp.open( "GET", url, false );
+          //xmlHttp.send( null );
+          response = httpget(url, "Random-Scratch-Project");
           jsonParsed = getProjectJSON(response);
         }
           document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" \nCreator name: ").concat(jsonParsed.creator.username);
