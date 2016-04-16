@@ -14,7 +14,7 @@
   //var xmlHttp = new XMLHttpRequest();
   //xmlHttp.open( "GET", url, false );
   //xmlHttp.send( null );
-  response = httpget(url, "Random-Scratch-Project");
+  response = proxyget(url, "Random-Scratch-Project");
   var jsonParsed = getProjectJSON(response);
   if (jsonParsed != false) {
   document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" \nCreator name: ").concat(jsonParsed.creator.username);
@@ -37,7 +37,7 @@
           //xmlHttp = new XMLHttpRequest();
           //xmlHttp.open( "GET", url, false );
           //xmlHttp.send( null );
-          response = httpget(url, "Random-Scratch-Project");
+          response = proxyget(url, "Random-Scratch-Project");
           jsonParsed = getProjectJSON(response);
         }
           document.getElementById("details").innerHTML = "Project title: ".concat(jsonParsed.title).concat(" \nCreator name: ").concat(jsonParsed.creator.username);
